@@ -4,6 +4,7 @@ import TodoList from './components/TodoList';
 import { DAO } from './core/DAO';
 import { TodoDAO } from './core/TodoDAO';
 import { Todo } from './core/Todo';
+import HOCCompletedTodoList from './components/HOCCompletedTodoList';
 
 const todoDAO:DAO = new TodoDAO()
 export const TodoDAOContext = React.createContext(todoDAO);
@@ -19,10 +20,12 @@ function App() {
     })();
   },[])
 
+
+  const CompletedTodoList = HOCCompletedTodoList(TodoList)
   return (
 
     <div className="container-fluid">
-      <TodoList></TodoList>
+      <CompletedTodoList todos={todos}></CompletedTodoList>
     </div>
   );
 }

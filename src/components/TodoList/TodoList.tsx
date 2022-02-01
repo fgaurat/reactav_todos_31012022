@@ -7,17 +7,9 @@ interface TodoListProps {
     todos: Todo[];
 }
 
-const TodoList = () => {
+const TodoList = ({todos}:TodoListProps) => {
 
-  const contextDAO = React.useContext(TodoDAOContext);
-  const [todos,setTodos] = useState<Todo[]>([])
-
-  useEffect(() => {
-    (async function anyNameFunction() {
-      const t = await contextDAO.getAll()
-      setTodos(t)
-    })();
-  },[])
+  // const contextDAO = React.useContext(TodoDAOContext);
 
 
 
